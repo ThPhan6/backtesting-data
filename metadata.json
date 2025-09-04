@@ -1,0 +1,5 @@
+{
+  "name": "Backtesting",
+  "description": "get data from yfinance",
+  "requestFramePermissions": []
+}

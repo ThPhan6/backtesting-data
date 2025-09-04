@@ -1,0 +1,303 @@
+:root {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F7F8FA;
+    --text-primary: #1A202C;
+    --text-secondary: #5A6474;
+    --border-color: #E2E8F0;
+    --accent-color: #EF4444;
+    --accent-hover: #DC2626;
+    --success-color: #16A34A;
+    --danger-color: #DC2626;
+    --info-color: #3B82F6;
+    --font-family: 'Inter', sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    background-color: var(--bg-primary);
+    border-right: 1px solid var(--border-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.config-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.section-title h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tooltip-icon {
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+.form-group .input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    background-color: var(--bg-primary);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--info-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+.checkbox-group label {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.run-backtest-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: auto; /* Pushes button to the bottom */
+}
+
+.run-backtest-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.run-backtest-btn:disabled {
+    background-color: #FCA5A5;
+    cursor: not-allowed;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 24px 32px;
+    overflow-y: auto;
+}
+
+.main-content-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+}
+.main-content-placeholder h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.main-header {
+    margin-bottom: 24px;
+}
+.main-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+.main-header p {
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.notification-banner {
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    background-color: #D1FAE5;
+    color: #065F46;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.content-card {
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.content-card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-item .label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+.summary-item .value {
+    font-size: 24px;
+    font-weight: 600;
+}
+.summary-item .value.positive { color: var(--success-color); }
+.summary-item .value.negative { color: var(--danger-color); }
+
+.chart-container {
+    height: 450px;
+}
+
+.trade-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.trade-history-table th, .trade-history-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.trade-history-table th {
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+}
+
+.trade-history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.trade-history-table .positive { color: var(--success-color); }
+.trade-history-table .negative { color: var(--danger-color); }
+
+.additional-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.additional-charts .chart-container {
+    height: 300px;
+}
+
+.export-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.export-buttons button {
+    padding: 10px 16px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.export-buttons button:hover {
+    background-color: var(--bg-secondary);
+    border-color: #CBD5E0;
+}
